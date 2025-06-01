@@ -6,32 +6,21 @@ import java.io.FileWriter;
 class FileIOBasic {
 
     private static Something loadSomething(String filename) {
-        Something something = null; // Maybe ArrayList
+        Something something = null; // new
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) { // "OUTPUT.TXT"
             String line;
             while ((line = reader.readLine()) != null) {
-                // String[] parts = line.split("#", 2);
-
-                // line.split("\\s+"); // white char
-                // line.indexOf("#", 0); // from index
-                // line.substring(0, 5); // from index, length
-                // line.replaceAll("\\s+", "");
-                // String.join(", ", parts);
-
-                // String word = parts[0].trim();
+                // making something
             }
             return something;
-            // Java 객체 반환
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        return something;
     }
 
     private static Something loadSomething(String filename) {
-        Something something = null; // Maybe ArrayList
+        Something something = null; // new
 
         String somethingJson;
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) { // "SOMETHING.JSON"
@@ -45,12 +34,9 @@ class FileIOBasic {
             // Json String -> Java 객체, fromJson
 
             return something;
-            // Java 객체 반환
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        return something;
     }
 
     private void writeSomething(String filename) {

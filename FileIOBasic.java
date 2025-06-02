@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.File;
 
 class FileIOBasic {
 
@@ -40,11 +42,27 @@ class FileIOBasic {
     }
 
     private void writeSomething(String filename) {
-        try (FileWriter writer = new FileWriter(filename)) { // 이어쓰기 : new FileWriter(filename, true)
-            writer.write("Hello, world!\n");
-            writer.write("This is a file writing example.");
+        File file = new File(filename);
+
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            // 파일에 한 줄 쓰기 (append 모드)
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+                writer.write(line);
+                writer.newLine();
+            }
+
+            // 500ms 일시정지
+            Thread.sleep(sleepMillis);
+
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("파일 쓰기 오류: " + e.getMessage());
+        } catch (InterruptedException e) {
+            System.err.println("스레드 sleep 중 인터럽트 발생");
+            Thread.currentThread().interrupt();  // 인터럽트 상태 복원 권장
         }
     }
 }

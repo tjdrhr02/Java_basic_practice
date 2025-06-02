@@ -11,9 +11,9 @@ public class StringBasic {
 
         // split
         String[] words = input.split("\\s+"); // 공백 문자 하나 이상 이어진 부분을 구분자로 문자열을 나눔
-        // split(" ") => 공백 여러 개 있으면 빈 문자열도 생겨서, 배열에 들어감!
+        // split(" ") => 공백 여러 개 있으면 빈 문자열도 생겨서, 배열에 들어감! 이렇게 쓰지말라는 것...
 
-        String[] parts = line.split("#"); // 최대 분할 개수, 2개로 나누기
+        String[] parts = line.split("#"); // 최대 분할 개수, limit
 
         // join
         String[] items = {"apple", "banana", "cherry"};

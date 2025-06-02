@@ -50,7 +50,7 @@ public class JsonBasic {
 
             //// 방법 1
             //JsonObject joDetail1 = joModel.getAsJsonObject("details");
-            //
+
             //// 방법 2, 방법 1과 동일
             //JsonObject joDetail2 = joModel.get("details").getAsJsonObject();
         }
@@ -72,12 +72,12 @@ public class JsonBasic {
         String jsonFromBytes = new String(jsonBytes, StandardCharsets.UTF_8);
         System.out.println("JSON from bytes:\n" + jsonFromBytes);
 
-        // 8. 바이트 배열 → Java 객체 다시 변환
+        // 8. jsonStr → Java 객체 다시 변환
         List<Person> peopleFromBytes = gson.fromJson(jsonFromBytes, new TypeToken<List<Person>>() {}.getType());
         System.out.println("Deserialized from bytes:");
 
         // Map<String, String> 으로 JSON을 파싱하는 방법
-        Map<String, String> dataMap = gson.fromJson(json, new TypeToken<Map<String, String>>() {}.getType());
+        Map<String, String> dataMap = gson.fromJson(jsonStr, new TypeToken<Map<String, String>>() {}.getType());
     }
 
     // dto

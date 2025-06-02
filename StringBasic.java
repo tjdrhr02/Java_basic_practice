@@ -23,9 +23,6 @@ public class StringBasic {
         List<String> names = List.of("Kim", "Lee", "Park");
         String joined = String.join(" | ", names);
 
-        String[] lines = {"line1", "line2", "line3"};
-        String result = String.join("\n", lines);
-
         // index
         int index = str.indexOf(String target); // str: 원본 문자열, target: 찾고자 하는 문자열 또는 문자
         int index = str.indexOf(String target, int fromIndex); // fromIndex: 몇 번째 문자부터 찾을지 지정 (선택)
@@ -43,5 +40,8 @@ public class StringBasic {
 
         // replaceAll
         String cleaned = input.replaceAll("\\s+", ""); // 모든 화이트 캐릭터
+
+        // format
+        String.format("Hello %s, %d", str, value);
     }
 }

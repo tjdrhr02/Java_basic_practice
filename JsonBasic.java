@@ -9,6 +9,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+
+
 public class JsonBasic {
 
     private void practice() {
@@ -70,6 +75,9 @@ public class JsonBasic {
         // 8. 바이트 배열 → Java 객체 다시 변환
         List<Person> peopleFromBytes = gson.fromJson(jsonFromBytes, new TypeToken<List<Person>>() {}.getType());
         System.out.println("Deserialized from bytes:");
+
+        // Map<String, String> 으로 JSON을 파싱하는 방법
+        Map<String, String> dataMap = gson.fromJson(json, new TypeToken<Map<String, String>>() {}.getType());
     }
 
     // dto
